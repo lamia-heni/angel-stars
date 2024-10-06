@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO₂ Emissions Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>CO₂ and Greenhouse Gas Emissions</h1>
+        <p>Explore the CO₂ emissions data for different countries over the years.</p>
+    </header>
+    <div class="container">
+        <form method="POST">
+            <label for="city">Select a City:</label>
+            <select id="city" name="city" required>
+                <option value="">--Select a City--</option>
+                {% for city in cities %}
+                <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Visualize</button>
+        </form>
+    </div>
+</body>
+</html>
